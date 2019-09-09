@@ -7,7 +7,7 @@ import { useState } from 'react';
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const [homeValue, homeSetValue] = useState(32);
-
+  const [awayValue, awaySetValue] = useState(32);
   // const scores = useState(32);
   // const value = scores[0];
   // const setValue = scores[1];
@@ -19,7 +19,14 @@ function App() {
   const homeTouchDownScore = () => {
     homeSetValue(homeValue + 7);
   };
+ 
+  const awayFieldScore = () => {
+    awaySetValue(awayValue + 3);
+  };
 
+  const awayTouchDownScore = () => {
+    awaySetValue(awayValue + 7);
+  };
 
   return (
     <div className="container">
@@ -35,7 +42,7 @@ function App() {
           <div className="timer">00:03</div>
           <div className="away">
             <h2 className="away__name">Tigers</h2>
-            <div className="away__score">32</div>
+            <div className="away__score">{awayValue}</div>
           </div>
         </div>
         <BottomRow />
