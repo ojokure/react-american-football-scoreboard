@@ -8,6 +8,7 @@ function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const [homeValue, homeSetValue] = useState(32);
   const [awayValue, awaySetValue] = useState(32);
+  const [quarterValue, SetQuarter] = useState(1);
 
   const homeScoreBox = {
     teamName: 'home',
@@ -19,6 +20,14 @@ function App() {
     touchDownAway: 7,
     fieldGoalAway: 3
   }
+
+  const increaseQuarter = () => {
+    
+    homeValue === 100 || awayValue === 100 ? SetQuarter(quarterValue + 1) :
+
+    SetQuarter(quarterValue)
+      
+ }
 
   const increaseTdScore = (props) => {
 
@@ -81,7 +90,7 @@ function App() {
           <button className="homeButtons__touchdown" onClick={() => increaseTdScore(homeScoreBox)}>Home Touchdown</button>
           <button className="homeButtons__fieldGoal" onClick={() => increaseFgScore(homeScoreBox)}>Home Field Goal</button>
         </div>
-
+        <button className="awayButtons__touchdown" onClick={increaseQuarter}> Quarter <p>+</p></button>
         <div className="awayButtons">
           <button className="awayButtons__touchdown" onClick={() => increaseTdScore(awayScoreBox)}>Away Touchdown</button>
           <button className="awayButtons__fieldGoal" onClick={() => increaseFgScore(awayScoreBox)}>Away Field Goal</button>
